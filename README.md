@@ -90,5 +90,8 @@ $kubectl cluster-info
 ```sh
 $ssh -i ~/.ssh/id_rsa admin@api.sample.com
 ```
-
+### Destroy the kubernetes cluster using below command
+```sh
+kops delete cluster --state=${KOPS_STATE_STORE} --name=${KOPS_CLUSTER_NAME} --yes
+```
 This site was built using [GitHub Pages](https://pages.github.com/).
