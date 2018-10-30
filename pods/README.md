@@ -34,5 +34,10 @@ $ kubectl describe pods/nodeapp
 ```
 $ kubectl exec nodeapp printenv
 ```
+### Get logs from pods
+**Syntax** - kubectl logs POD_NAME
+```
+$ kubectl logs nodeapp
+```
 
 
