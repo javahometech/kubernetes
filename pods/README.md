@@ -44,5 +44,10 @@ $ kubectl exec -it nodeapp bash
 ```
 $ kubectl logs nodeapp
 ```
+## Exposing Pods to Internet
+By default Pods run in a isolated environment i.e. they are reachable within kubernetes cluster, if you wanna reach your pod outside cluster, You have to expose it
+```
+$ kubectl expose pods/nodeapp --type="NodePort" --port 8080
+```
 
 
