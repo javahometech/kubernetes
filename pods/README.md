@@ -24,8 +24,14 @@ $ kubectl get pods
 ### Command to describe pod details
 
 ```
+Syntax - kubectl describe pods/POD_NAME
 $ kubectl describe pods/nodeapp
 ```
-**Note:** (Replace nodeapp with your pod name)
+
+### Executing commands on pods
+```
+Syntax - kubectl exec POD_NAME CMD_TO_EXECUTE
+$ kubectl exec nodeapp printenv
+```
 
 
