@@ -26,4 +26,4 @@ $ kubectl get pods
 ```
 $ kubectl describe pods/nodeapp
 ```
-#### Note: Replace nodeapp with your pod name
+** Note: Replace nodeapp with your pod name **
