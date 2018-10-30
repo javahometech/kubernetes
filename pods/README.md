@@ -11,5 +11,19 @@ spec:
   - name: nodeapp
     image: kammana/node-app:0.0.3
 ```
-```sh
+
+```
 $ kubectl create -f pods.yml
+```
+### Command to get all pods
+
+```
+$ kubectl get pods
+```
+
+### Command to describe pod details
+
+```
+$ kubectl describe pods/nodeapp
+```
+#### Note: Replace nodeapp with your pod name
