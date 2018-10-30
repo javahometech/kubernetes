@@ -1,7 +1,7 @@
 # Kubernetes Pods - Commands 
 ## Creating a Pod
 ### Create pod.yml with following content
-Get the file [here(pod.xml)](https://github.com/javahometech/kubernetes/pods/pod.yml)
+Get the file [here(pod.yml)](https://github.com/javahometech/kubernetes/pods/pod.yml)
 ```
 apiVersion: v1
 kind: Pod
