@@ -34,6 +34,11 @@ $ kubectl describe pods/nodeapp
 ```
 $ kubectl exec nodeapp printenv
 ```
+### Getting into pods Terminal
+**Syntax** - kubectl exec -it POD_NAME bash
+```
+$ kubectl exec -it nodeapp bash
+```
 ### Get logs from pods
 **Syntax** - kubectl logs POD_NAME
 ```
