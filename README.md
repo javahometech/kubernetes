@@ -1,6 +1,11 @@
 # Kubernetes
 ## Table of Contents
 ## Installing Kubernetes on AWS Using Kops
+## Prerequsites
+```
+DNS 
+S3bucket
+```
 ### One Linux/Ubuntu Virtual Machine is Required (Our Example is Based on AWS Linux)
 ### Insatll awscli using following 
 ```sh
