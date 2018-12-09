@@ -1,18 +1,20 @@
 # Kubernetes Pods - Commands 
 ## Creating a Pod
 ### Create pod.yml with following content
-Get the file [here(pod.yml)](https://github.com/javahometech/kubernetes/pods/pod.yml)
+Get the file [(pod.yml)](https://github.com/javahometech/kubernetes/pods/pod.yml)
 ```
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nodeapp
+  name: first-app
   labels:
     app: nodeapp
 spec:
   containers:
-  - name: nodeapp
-    image: kammana/node-app:0.0.3
+    - name: nodeapp
+      image: kammana/nodeapp:v1
+      ports:
+        - containerPort: 8080
 ```
 
 ```
