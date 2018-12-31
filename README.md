@@ -40,7 +40,7 @@ $sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 ##### Checking kubectl version.
 ```sh
-$kubectl --version
+$kubectl version
 ```
 ### Create an AWS S3 bucket for kops to persist its state.
 ```sh
@@ -52,9 +52,13 @@ $aws s3 mb s3://${bucket_name} --region us-west-2
 export KOPS_CLUSTER_NAME=sample.com
 export KOPS_STATE_STORE=s3://${bucket_name}
 ```
+### Create a ssh key pair before run the create cluster command this is used in 
+```sh
+$ssh-keygen
+```
 ### kops create cluster help command to find additional parameters.
 ```sh
-kops create cluster --help
+$kops create cluster --help
 ```
 ### Create a Kubernetes cluster definition using kops by providing the required fields.
 ```sh
@@ -68,7 +72,7 @@ $kops create cluster \
 ```
 ### If it show any ssh required after running above command
 ```sh
-kops create secret sshpublickey admin -i ~/.ssh/id_rsa.pub --name=${KOPS_CLUSTER_NAME} --state=${KOPS_STATE_STORE}
+$kops create secret sshpublickey admin -i ~/.ssh/id_rsa.pub --name=${KOPS_CLUSTER_NAME} --state=${KOPS_STATE_STORE}
 ```
 ### Review the Kubernetes cluster definition by executing the below command
 ```sh
@@ -92,6 +96,6 @@ $ssh -i ~/.ssh/id_rsa admin@api.sample.com
 ```
 ### Destroy the kubernetes cluster using below command
 ```sh
-kops delete cluster --state=${KOPS_STATE_STORE} --name=${KOPS_CLUSTER_NAME} --yes
+$kops delete cluster --state=${KOPS_STATE_STORE} --name=${KOPS_CLUSTER_NAME} --yes
 ```
 This site was built using [GitHub Pages](https://pages.github.com/).
