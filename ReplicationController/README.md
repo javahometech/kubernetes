@@ -54,6 +54,7 @@ $ kubectl describe rc nodeapp
 ```
 #### Command to Expose ReplicationController to Internet
 By default ReplicationController run in a isolated environment i.e. they are reachable within kubernetes cluster, if you wanna reach your ReplicationController outside cluster, You have to expose it
+
 **Syntax:** kubectl expose rc REPLICATIONCONTROLLER_NAME --type="NodePort" --port CONTAINER_PORT
 ```
 $ kubectl expose rc nodeapp --type="NodePort" --port 8080
