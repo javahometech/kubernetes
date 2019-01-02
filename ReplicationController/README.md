@@ -37,22 +37,22 @@ spec:
         - containerPort: 8080
 ```
 
-#### Command to create ReplicationController
+### Command to create ReplicationController
 **Syntax:** kubectl create -f FILE_NAME
 ```
 $ kubectl create -f rc.yml
 ```
-####  Command to get all ReplicationController
+###  Command to get all ReplicationController
 **Syntax:** kubectl get rc
 ```
 $ kubectl get rc
 ```
-#### Command to describe ReplicationController
+### Command to describe ReplicationController
 **Syntax:** kubectl describe rc REPLICATIONCONTROLLER_NAME
 ```
 $ kubectl describe rc nodeapp
 ```
-#### Command to Expose ReplicationController to Internet
+### Command to Expose ReplicationController to Internet
 By default ReplicationController run in a isolated environment i.e. they are reachable within kubernetes cluster, if you wanna reach your ReplicationController outside cluster, You have to expose it
 
 **Syntax:** kubectl expose rc REPLICATIONCONTROLLER_NAME --type="NodePort" --port CONTAINER_PORT
