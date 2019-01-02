@@ -59,3 +59,4 @@ By default ReplicationController run in a isolated environment i.e. they are rea
 ```
 $ kubectl expose rc nodeapp --type="NodePort" --port 8080
 ```
+<span style="color:orange;">Word up</span>
