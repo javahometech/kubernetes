@@ -36,3 +36,19 @@ spec:
         ports:
         - containerPort: 8080
 ```
+
+#### Command to create ReplicationController
+**Syntax:** kubectl create -f FILE_NAME
+```
+$ kubectl create -f rc.yml
+```
+####  Command to get all ReplicationController
+**Syntax:** kubectl get rc
+```
+$ kubectl get rc
+```
+#### Command to describe ReplicationController
+**Syntax:** kubectl describe rc REPLICATIONCONTROLLER_NAME
+```
+$ kubectl describe rc nodeapp
+```
