@@ -36,6 +36,8 @@ $kubectl version
 $bucket_name=sample-kops-state-store
 $aws s3 mb s3://${bucket_name} --region us-west-2
 ```
+### Create domain from free websites dot.tk
+
 ### Provide a name for the Kubernetes cluster and set the S3 bucket URL in the following environment variables.
 ```sh
 export KOPS_CLUSTER_NAME=sample.com
