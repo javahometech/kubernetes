@@ -3,9 +3,9 @@
 ## Installing Kubernetes on AWS Using Kops
 ### One Linux/Ubuntu Virtual Machine is Required (Our Example is Based on AWS Linux)
 
-### Create a new IAM role for EC2 with admin access.
-
-### Configure the AWS CLI by providing the Access Key, Secret Access Key and the AWS region.
+```
+Create a new IAM role for EC2 with admin access.
+```
 
 ```
 Attache IAM role to EC2 instance
