@@ -38,6 +38,14 @@ $aws s3 mb s3://${bucket_name} --region us-west-2
 ```
 ### Create domain from free websites dot.tk
 
+```
+  Create Hosted Zone under AWS Route 53, Hosted Zone name must match with domain you created in previous step
+```
+
+```
+  Takse DNS servers and update them in dot.tk under your domain name servers
+```
+
 ### Provide a name for the Kubernetes cluster and set the S3 bucket URL in the following environment variables.
 ```sh
 export KOPS_CLUSTER_NAME=sample.com
