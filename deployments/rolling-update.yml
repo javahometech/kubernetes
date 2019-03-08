@@ -7,7 +7,7 @@ spec:
   strategy:
   type: RollingUpdate
   rollingUpdate:
-    maxSurge: 1
+    maxSurge: 25%
     maxUnavailable: 25%
   selector:
     matchLabels:
