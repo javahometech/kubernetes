@@ -5,10 +5,10 @@ metadata:
 spec:
   replicas: 3
   strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxSurge: 25%
-    maxUnavailable: 25%
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app: nodeapp
@@ -26,6 +26,6 @@ spec:
           httpGet:
              path: /
              port: 8080
-             initialDelaySeconds: 5
-             periodSeconds: 5
-             successThreshold: 1
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
