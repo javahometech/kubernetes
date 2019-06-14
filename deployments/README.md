@@ -12,3 +12,10 @@ kubectl create -f https://raw.githubusercontent.com/javahometech/kubernetes/mast
 ```
 kubectl rollout status deployment nodeappdeployment
 ```
+
+### Updating deployment
+For example we want to change number of replicas, change replicas in yaml and run following command
+
+```
+kubectl apply -f https://raw.githubusercontent.com/javahometech/kubernetes/master/deployments/deployments.yml
+```
