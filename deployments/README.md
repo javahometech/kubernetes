@@ -28,3 +28,15 @@ inorder to see deployment revision history
 ```
 kubectl rollout history deployment nodeappdeployment
 ```
+
+### Undo recent deployment
+
+```
+kubectl rollout undo deployment nodeappdeployment
+```
+
+### rollback to specific deployment revision 
+
+```
+kubectl rollout undo deployment nodeappdeployment --to-revision=1
+```
