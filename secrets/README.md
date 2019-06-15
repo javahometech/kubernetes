@@ -20,3 +20,9 @@ spec:
   - name: regcred
 
 ```
+
+Create pod which uses private image 
+
+```
+docker create -f https://raw.githubusercontent.com/javahometech/kubernetes/master/secrets/private-images-pod.yml
+```
