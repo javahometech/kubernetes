@@ -1,4 +1,4 @@
-## 1. Pulling private images
+## 1. Pulling private images using Secrets
 
 Create kubernetes secrets 
 
