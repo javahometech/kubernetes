@@ -1,6 +1,6 @@
 ## 1. Pulling private images
 
-### Create kubernetes secrets 
+Create kubernetes secrets 
 
 ```
 kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-userme=kammana --docker-password=<your-password> --docker-email=hari.kammana@gmail.com
