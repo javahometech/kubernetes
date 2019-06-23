@@ -1,8 +1,14 @@
 # Kubernetes on AWS using Kops
 
 ### 1. Launch Linux EC2 instance in AWS
-### 2. Create IAM role for EC2 with admin access.
-	Attach Iam role to EC2 instance
+### 2. Create and attach IAM role to EC2 Instance.
+	Kops need permissions to access
+		S3
+		EC2
+		VPC
+		Route53
+		Autoscaling
+		etc..
 ### 3. Install Kops on EC2
 ```sh
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
@@ -10,77 +16,78 @@ chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
 
-### 4. Install kubelet
+### 4. Install kubectl
+```sh
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.12.0/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
-### Create S3 bucket in AWS
-S3 bucket is used by kubernetes to persist cluster state
+```
+### 5. Create S3 bucket in AWS
+S3 bucket is used by kubernetes to persist cluster state, lets create s3 bucket using aws cli
+**Note:**  Make sure you choose bucket name that is uniqe accross all aws accounts
 
 ```sh
-$bucket_name=sample-kops-state-store
-$aws s3 mb s3://${bucket_name} --region us-west-2
+aws s3 mb s3://javahome.in.k8s --region ap-south-1
 ```
-### Create domain from free websites dot.tk
+### 6. Create private hosted zone in AWS Route53
+ 1. Head over to aws Route53 and create hostedzone
+ 2. Choose name for example (javahome.in)
+ 3. Choose type as privated hosted zone for VPC
+ 4. Select default vpc in the region you are setting up your cluster
+ 5. Hit create
 
+### 7 Configure environment variables.
+Open .bashrc file 
 ```
-  Create Hosted Zone under AWS Route 53, Hosted Zone name must match with domain you created in previous step
+	vi ~/.bashrc
+```
+Add following content into .bashrc, you can choose any arbitary name for cluster and make sure buck name matches the one you created in previous step.
+
+```sh
+export KOPS_CLUSTER_NAME=javahome.in
+export KOPS_STATE_STORE=s3://javahome.in.k8s
+```
+Then running command to reflect variables added to .bashrc
+```
+	source ~/.bashrc
+```
+### 8. Create ssh key pair
+This keypair is used for ssh into kubernetes cluster
+
+```sh
+ssh-keygen
 ```
 
-```
-  Takse DNS servers and update them in dot.tk under your domain name servers
-```
-
-### Provide a name for the Kubernetes cluster and set the S3 bucket URL in the following environment variables.
+### 9. Create a Kubernetes cluster definition.
 ```sh
-export KOPS_CLUSTER_NAME=sample.com
-export KOPS_STATE_STORE=s3://${bucket_name}
-```
-### Create a ssh key pair before run the create cluster command this is used in 
-```sh
-$ssh-keygen
-```
-### kops create cluster help command to find additional parameters.
-```sh
-$kops create cluster --help
-```
-### Create a Kubernetes cluster definition using kops by providing the required fields.
-```sh
-$kops create cluster \
+kops create cluster \
 --state=${KOPS_STATE_STORE} \
 --node-count=2 \
 --master-size=t2.micro \
 --node-size=t2.micro \
---zones=us-west-1a \
---name=${KOPS_CLUSTER_NAME}
+--zones=ap-south-1a,ap-south-1b \
+--name=${KOPS_CLUSTER_NAME} \
+--dns private \
+--master-count 1
 ```
-### If it show any ssh required after running above command
+
+### 10. Create kubernetes cluster
+
 ```sh
-$kops create secret sshpublickey admin -i ~/.ssh/id_rsa.pub --name=${KOPS_CLUSTER_NAME} --state=${KOPS_STATE_STORE}
+kops update cluster --yes
 ```
-### Review the Kubernetes cluster definition by executing the below command
+Above command may take some time to create the required infrastructure resources on AWS. Execute the validate command to check its status and wait until the cluster becomes ready
+
 ```sh
-$kops edit cluster --name=${KOPS_CLUSTER_NAME} --state=${KOPS_STATE_STORE}
+kops validate cluster
 ```
-### Now create the Kubernetes cluster on AWS by executing kops update command
+For the above above command, you might see validation failed error initially when you create cluster and it is expected behaviour, you have to wait for some more time and check again.
+
+### 11. To connect to the master
 ```sh
-$kops update cluster --name=${KOPS_CLUSTER_NAME} --state=${KOPS_STATE_STORE} --yes
+ssh admin@api.javahome.in
 ```
-### Above command may take some time to create the required infrastructure resources on AWS. Execute the validate command to check its status and wait until the cluster becomes ready
+# Destroy the kubernetes cluster
 ```sh
-$kops validate cluster --state=${KOPS_STATE_STORE} --name=${KOPS_CLUSTER_NAME}
+kops delete cluster  --yes
 ```
-### Execute the below command to find the Kubernetes master hostname using kubectl
-```sh
-$kubectl cluster-info
-```
-### To connect to the master and check the connection
-```sh
-$ssh -i ~/.ssh/id_rsa admin@api.sample.com
-```
-### Destroy the kubernetes cluster using below command
-```sh
-$kops delete cluster --state=${KOPS_STATE_STORE} --name=${KOPS_CLUSTER_NAME} --yes
-```
-This site was built using [GitHub Pages](https://pages.github.com/).
