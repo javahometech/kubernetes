@@ -1,21 +1,13 @@
-# Kubernetes
-## Table of Contents
-## Installing Kubernetes on AWS Using Kops
-### One Linux/Ubuntu Virtual Machine is Required (Our Example is Based on AWS Linux)
-
-```
-Create a new IAM role for EC2 with admin access.
-```
-
-```
-Attache IAM role to EC2 instance
-```
-### Install kops by following its [official installation guide](https://github.com/kubernetes/kops#linux).
+### 1. Launch Linux EC2 instance in AWS
+### 2. Create IAM role for EC2 with admin access.
+			Attach Iam role to EC2 instance
+### 3. Install Kops on EC2
 ```sh
-$curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
-$chmod +x kops-linux-amd64
-$sudo mv kops-linux-amd64 /usr/local/bin/kops
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
+
 ##### Checking kops version.
 ```sh
 $kops version
