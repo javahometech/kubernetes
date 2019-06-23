@@ -1,6 +1,8 @@
+# Kubernetes on AWS using Kops
+
 ### 1. Launch Linux EC2 instance in AWS
 ### 2. Create IAM role for EC2 with admin access.
-			Attach Iam role to EC2 instance
+	Attach Iam role to EC2 instance
 ### 3. Install Kops on EC2
 ```sh
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
@@ -8,22 +10,14 @@ chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 ```
 
-##### Checking kops version.
-```sh
-$kops version
-```
-### Install kubectl by following its [official installation guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl)
-```sh
-$curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-$curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.12.0/bin/linux/amd64/kubectl
-$chmod +x ./kubectl
-$sudo mv ./kubectl /usr/local/bin/kubectl
-```
-##### Checking kubectl version.
-```sh
-$kubectl version
-```
-### Create an AWS S3 bucket for kops to persist its state.
+### 4. Install kubelet
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.12.0/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+### Create S3 bucket in AWS
+S3 bucket is used by kubernetes to persist cluster state
+
 ```sh
 $bucket_name=sample-kops-state-store
 $aws s3 mb s3://${bucket_name} --region us-west-2
