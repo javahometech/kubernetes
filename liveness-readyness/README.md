@@ -1,4 +1,4 @@
-## Liveness and Readyness Probes
+## Liveness and Readiness Probes
 
 The kubelet uses liveness probes to know when to restart a Container. For example, liveness probes could catch a deadlock, where an application is running, but unable to make progress. Restarting a Container in such a state can help to make the application more available despite bugs.
 
@@ -28,5 +28,5 @@ spec:
 ```
 
 ```sh
-  kubectl create -f liveness-probe.yml
+  kubectl create -f  https://raw.githubusercontent.com/javahometech/kubernetes/master/liveness-readyness/liveness-probe.yml
 ```
