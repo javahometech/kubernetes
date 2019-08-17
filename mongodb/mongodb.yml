@@ -21,8 +21,8 @@ spec:
         - name: mongodb-persistent
           mountPath: /data/db
       volumes:
-      - name: mongodb-persistent
-      # This AWS EBS volume must already exist.
-      awsElasticBlockStore:
-        volumeID: vol-02307bbba2f92300e
-        fsType: ext4
+        - name: mongodb-persistent
+          # This AWS EBS volume must already exist.
+          awsElasticBlockStore:
+            volumeID: vol-02307bbba2f92300e
+            fsType: ext4
