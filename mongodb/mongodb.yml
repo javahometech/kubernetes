@@ -17,3 +17,10 @@ spec:
         image: mongo
         ports:
         - containerPort: 27017
+        volumeMounts:
+        - name: mongodb-persistent
+          mountPath: /data/db
+    volumes:
+      - name: mongodb-persistent
+        persistentVolumeClaim:
+          claimName: mongodb-pv-claim
