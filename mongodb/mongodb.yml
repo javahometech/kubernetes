@@ -20,7 +20,7 @@ spec:
         volumeMounts:
         - name: mongodb-persistent
           mountPath: /data/db
-    volumes:
-      - name: mongodb-persistent
-        persistentVolumeClaim:
-          claimName: mongodb-pv-claim
+      volumes:
+        - name: mongodb-persistent
+          persistentVolumeClaim:
+            claimName: mongodb-pv-claim
