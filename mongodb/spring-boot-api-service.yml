@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: boot-api
+  name: emp-api
 spec:
   selector:
-    app: boot-api
+    app: emp-api
   ports:
   - protocol: TCP
     port: 80
