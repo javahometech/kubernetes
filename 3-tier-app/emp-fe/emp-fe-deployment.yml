@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emp-fe   
+  labels:
+    app: emp-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emp-fe
+  template:
+    metadata:
+      labels:
+        app: emp-fe
+    spec:
+      containers:
+      - name: emp-fe
+        image: kammana/emp-fe:1.0
+        ports:
+        - containerPort: 4200

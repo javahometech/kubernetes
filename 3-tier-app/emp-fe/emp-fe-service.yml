@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: emp-fe
+spec:
+  selector:
+    app: emp-fe
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 4200
+  type: NodePort

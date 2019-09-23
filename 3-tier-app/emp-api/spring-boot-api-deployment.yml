@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emp-api
+  labels:
+    app: emp-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: emp-api
+  template:
+    metadata:
+      labels:
+        app: emp-api
+    spec:
+      containers:
+      - name: emp-api
+        image: kammana/boot-api:5.0
+        ports:
+        - containerPort: 8080
