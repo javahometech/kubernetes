@@ -15,7 +15,7 @@
 ## Creating a ReplicationController
 ### Create rc.yml with following content
 Get the file [(rc.yml)](https://github.com/javahometech/kubernetes/blob/master/ReplicationController/rc.yml)
-```
+```YAML
 apiVersion: v1
 kind: ReplicationController
 metadata:
