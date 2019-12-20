@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nodeapp
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - {key: app, operator: In, values: [nodeapp]}
+  template:
+    metadata:
+      name: nodeapp
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+      - name: nodeapp
+        image: kammana/nodeapp:v1
+        ports:
+        - containerPort: 8080
