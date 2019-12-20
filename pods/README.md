@@ -6,7 +6,7 @@ Get the file [(pod.yml)](https://github.com/javahometech/kubernetes/blob/master/
 apiVersion: v1
 kind: Pod
 metadata:
-  name: first-app
+  name: nodeapp
   labels:
     app: nodeapp
 spec:
