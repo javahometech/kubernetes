@@ -1,0 +1,18 @@
+# For this demo, lets add labels to nodes
+# command to add label to node ( kubectl get nodes) to get list of nodes
+# kubectl label nodes <your-node-name> diskType=ssd
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeselector
+  labels:
+    app: nodeappselector
+spec:
+  containers:
+    - name: nodeapp
+      image: kammana/nodeapp:v1
+      ports:
+        - containerPort: 8089
+  nodeSelector:
+    diskType: ssd
