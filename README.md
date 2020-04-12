@@ -92,6 +92,15 @@ ssh admin@api.javahome.in
 kops delete cluster  --yes
 ```
 
+## Update Nodes and Master in the cluster
+We can change numner of nodes and number of masters using following commands
+```
+   kops edit ig nodes change minSize and maxSize to 0
+   kops get ig- to get master node name
+   kops edit ig - change min and max size to 0
+   kops update cluster --yes
+ 
+```
 # Optional (Create terraform scripts through kops)
 
 ```
