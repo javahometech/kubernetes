@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeappdeployment
+  name: nodeapp
 spec:
   replicas: 3
   strategy:
@@ -22,10 +22,3 @@ spec:
         name: nodeapp
         ports:
         - containerPort: 8080
-        readinessProbe:
-          httpGet:
-             path: /
-             port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 5
-          successThreshold: 1
