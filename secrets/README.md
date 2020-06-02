@@ -9,7 +9,7 @@ kubectl create secret docker-registry regcred --docker-server=https://index.dock
 
 The following command will create config.json file in your <home-dir>/.docker/config.json
 ```
-    docker login
+docker login
 ```
 
 ```
