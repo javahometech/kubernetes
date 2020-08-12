@@ -15,4 +15,4 @@ spec:
       ports:
         - containerPort: 8089
   nodeSelector:
-    appType: db
+    Name: node2
