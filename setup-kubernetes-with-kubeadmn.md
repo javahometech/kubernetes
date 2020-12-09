@@ -7,26 +7,25 @@
 
 ## 2. Repeate these steps on all three nodes
 
-  ### a. Install docker on all nodes
+  * a. Install docker on all nodes
   
       sudo yum install docker -y
       sudo service docker start
       sudo chkconfig docker on
       
-  ### b. Adding current user to docker group (Optional)
+  * b. Adding current user to docker group (Optional)
       sudo usermod -aG docker $USER
       sudo service docker start
-  ### c. Disable swap momory
+  * c. Disable swap momory
       sudo swapoff -a
-  ### d. Command to update fstab so that swap remains disabled after a reboot
-    ```sh
+  * d. Command to update fstab so that swap remains disabled after a reboot
       sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-    ```
-  ### e. Set SELinux in permissive mode (effectively disabling it)
+    
+  * e. Set SELinux in permissive mode (effectively disabling it)
         sudo setenforce 0
         sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
       
-  ### f. Install kubeadmn, kubectl, kubectl on all three nodes
+  * f. Install kubeadmn, kubectl, kubectl on all three nodes
       
 ```
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
