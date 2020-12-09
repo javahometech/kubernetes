@@ -15,8 +15,10 @@
   ```
   
   * ### Adding current user to docker group (Optional)
-      ```sudo usermod -aG docker $USER
-         sudo service docker start ```
+      ```
+      sudo usermod -aG docker $USER
+       sudo service docker start 
+      ```
   * ### Disable swap momory
   
       ``` sudo swapoff -a ```
