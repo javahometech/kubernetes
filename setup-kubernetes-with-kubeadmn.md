@@ -18,15 +18,20 @@
       ```sudo usermod -aG docker $USER
          sudo service docker start ```
   * c. Disable swap momory
+  
       ``` sudo swapoff -a ```
+    
   * d. Command to update fstab so that swap remains disabled after a reboot
+  
       ``` sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab ```
     
   * e. Set SELinux in permissive mode (effectively disabling it)
+  
   ```
         sudo setenforce 0
         sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
-  ```    
+  ```
+  
   * f. Install kubeadmn, kubectl, kubectl on all three nodes
       
 ```
