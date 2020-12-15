@@ -18,7 +18,7 @@ spec:
         app: nodeapp
     spec:
       containers:
-      - image: kammana/nodeapp:v1
+      - image: kammana/nodeapp:v2
         name: nodeapp
         ports:
         - containerPort: 8080
