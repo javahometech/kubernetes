@@ -10,7 +10,7 @@ kubectl create -f https://raw.githubusercontent.com/javahometech/kubernetes/mast
 ### Check status of the current deployment
 
 ```
-kubectl rollout status deployment nodeappdeployment
+kubectl rollout status deployment nodeapp
 ```
 
 ### Updating deployment
@@ -26,17 +26,17 @@ Kubernetes maintains deployment state of all versions
 inorder to see deployment revision history
 
 ```
-kubectl rollout history deployment nodeappdeployment
+kubectl rollout history deployment nodeapp
 ```
 
 ### Undo recent deployment
 
 ```
-kubectl rollout undo deployment nodeappdeployment
+kubectl rollout undo deployment nodeapp
 ```
 
 ### rollback to specific deployment revision 
 
 ```
-kubectl rollout undo deployment nodeappdeployment --to-revision=1
+kubectl rollout undo deployment nodeapp --to-revision=1
 ```
