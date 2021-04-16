@@ -63,8 +63,8 @@ ssh-keygen
 kops create cluster \
 --state=${KOPS_STATE_STORE} \
 --node-count=2 \
---master-size=t2.micro \
---node-size=t2.micro \
+--master-size=t3.medium \
+--node-size=t3.medium \
 --zones=ap-south-1a,ap-south-1b \
 --name=${KOPS_CLUSTER_NAME} \
 --dns private \
