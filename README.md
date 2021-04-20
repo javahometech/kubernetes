@@ -74,7 +74,7 @@ kops create cluster \
 ### 10. Create kubernetes cluster
 
 ```sh
-kops update cluster --yes
+kops update cluster --yes --admin
 ```
 Above command may take some time to create the required infrastructure resources on AWS. Execute the validate command to check its status and wait until the cluster becomes ready
 
