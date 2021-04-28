@@ -30,7 +30,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addo
 # Kubernetes 1.16+
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/metrics-server/v1.16.x.yaml
 ```
-
+## HPA Setup
 #### To create deployment run the below command
 ```
 $ kubectl apply -f hpa.yml
