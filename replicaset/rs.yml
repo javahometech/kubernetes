@@ -3,7 +3,7 @@ kind: ReplicaSet
 metadata:
   name: nodeapp
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchExpressions:
       - {key: app, operator: In, values: [nodeapp]}
