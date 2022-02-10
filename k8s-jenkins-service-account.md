@@ -1,6 +1,6 @@
 ## Steps to configure kubernetes service account for Jenkins
 
-```sh
+```
   kubectl -n kube-system create serviceaccount jenkins-sa
   
   kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:jenkins-sa
