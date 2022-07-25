@@ -19,3 +19,4 @@ spec:
         image: kammana/boot-api:5.0
         ports:
         - containerPort: 8080
+demo for today
