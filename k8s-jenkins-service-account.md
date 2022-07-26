@@ -11,11 +11,3 @@
 
   kubectl config set-credentials jenkins-sa --token=$TOKEN
 ```
-
-## Jenkins Code Snippet
-
-```
-withCredentials([kubeconfigFile(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                    sh "/usr/local/bin/kubectl apply -f kubernetes/pod.yml  "
-                }
-```
