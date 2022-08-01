@@ -7,7 +7,11 @@ data:
   db_password: "Admin@4321"
 demo for today 2
 i am in bangalore as of now
+<<<<<<< HEAD
 This is August month
 Tomorrow is tuesday
 apples are good for health
 demo for monday
+=======
+today is monday
+>>>>>>> master
