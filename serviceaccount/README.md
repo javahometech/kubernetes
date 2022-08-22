@@ -40,17 +40,27 @@ $ kubectl create -f https://raw.githubusercontent.com/javahometech/kubernetes/ma
 $ kubectl get sa
 ```
 ### Create cluster role binding with following command.
+```
 kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=default:jenkins
+```
 
 ### Get token name, where the token stored.
+```
 TOKENNAME=`kubectl  get serviceaccount/jenkins -o jsonpath='{.secrets[0].name}'`
+```
 
 ### Get token, which is stored in the secret.
+```
 TOKEN=`kubectl get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
+```
 
 ### Set the credentials to jenkins
+```
 kubectl config set-credentials jenkins --token=$TOKEN
+```
 
 
 ### Set the context to jenkins user.
+```
 kubectl config set-context --current --user=jenkins
+```
