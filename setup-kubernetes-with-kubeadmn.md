@@ -85,3 +85,6 @@ sudo systemctl enable --now kubelet
  
 
         
+
+# Troubleshoot issues
+
