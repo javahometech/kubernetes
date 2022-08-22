@@ -86,5 +86,6 @@ sudo systemctl enable --now kubelet
 
         
 
-# Troubleshoot issues
-
+# Troubleshoot issues.
+### Join Worker Nodes to Cluster set EC2 Security Group Inbound Rules.
+When we run [kubeadm join](https://github.com/javahometech/kubernetes/blob/master/setup-kubernetes-with-kubeadmn.md#6-take-note-of-kubeadm-command-and-run-on-all-workers)
