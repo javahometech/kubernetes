@@ -21,6 +21,7 @@ $ kubectl create -f https://raw.githubusercontent.com/javahometech/kubernetes/ma
 $ kubectl get secrets
 ```
 ### Create sa.yml with following content
+Get the file [(sa.yml)](https://github.com/javahometech/kubernetes/blob/master/serviceaccount/sa.yaml)
 ```
 apiVersion: v1
 kind: ServiceAccount
