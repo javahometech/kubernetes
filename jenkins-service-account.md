@@ -14,8 +14,18 @@
 
 ## Jenkins Code Snippet
 
+
 ```
-withCredentials([kubeconfigFile(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                    sh "/usr/local/bin/kubectl apply -f kubernetes/pod.yml  "
+pipeline{
+    agent any
+    stages{
+        stage("Welcome"){
+            steps{
+                echo "Welcome to Pipelines"
+                withCredentials([kubeconfigFile(credentialsId: 'k8s-creds', variable: 'KUBECONFIG')]) {
+                    sh "echo $KUBECONFIG "
                 }
-```
+            }
+        }
+    }
+}
