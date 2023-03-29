@@ -1,4 +1,4 @@
-# kubectl label nodes <your-node-name> disktype=ssd
+# kubectl label nodes <your-node-name> cpuOptimised=yes
 # kubectl get nodes --show-labels
 
 apiVersion: v1
@@ -11,10 +11,10 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: disktype
+          - key: cpuOptimised
             operator: In
             values:
-            - ssd            
+            - yes            
   containers:
   - name: nginx
     image: nginx
