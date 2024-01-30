@@ -1,5 +1,7 @@
 # Kubernetes on AWS using Kops
 
+[Kubernetes on AWS using Kops](https://github.com/javahometech/kubernetes) is a demo repository that demonstrates how to set up and manage a Kubernetes cluster on Amazon Web Services (AWS) using Kops. This repository includes all the necessary configuration files and scripts to set up a highly-available and scalable Kubernetes cluster. The demo includes step-by-step instructions and code samples to help you understand and apply the concepts. Whether you're new to Kubernetes and AWS or an experienced practitioner, this repository is a valuable resource for anyone looking to deploy and manage Kubernetes clusters on AWS using Kops.
+
 ### 1. Launch Linux EC2 instance in AWS (Kubernetes Client)
 ### 2. Create and attach IAM role to EC2 Instance.
 	Kops need permissions to access
